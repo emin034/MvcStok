@@ -1,0 +1,25 @@
+﻿@model MvcStok.Models.Entity.Tbl_Categories
+@{
+    ViewBag.Title = "NewCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+    <form class="form-group" method="post">
+        @*<div>
+
+            <label>Kateqoriya Adi</label>
+            <input type="text" class="form-control" name="Name"  />
+        </div>*@
+        <div>
+
+            <label>Kateqoriya Adi</label>
+             @Html.TextBoxFor(m=>m.Name,new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name,"", new { @style="color:blue"})
+        </div>
+        <div style="margin-top:15px">
+
+            <button class="btn btn-info">Kateqoriya Əlavə Et</button>
+        </div>
+
+
+    </form>

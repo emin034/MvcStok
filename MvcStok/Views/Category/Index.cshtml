@@ -1,0 +1,50 @@
+﻿@using MvcStok.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Tbl_Categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kateqoriya ID </th>
+            <th>Kateqoriya Adi</th>
+            <th>Sil</th>
+            <th>Yenilə</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ctgry in Model)
+        {
+            <tr>
+                <th>
+                    @ctgry.ID
+                </th>
+                <td>
+                    @ctgry.Name
+                </td>
+                <td>
+                    <a href="/Category/Delete/@ctgry.ID" class=" btn btn-danger">Sil</a>
+                </td>
+                <td> <a href="/Category/GetUpdate/@ctgry.ID" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<a href="/Category/NewCategory/" class="btn btn-primary">Yeni Kateqoriya Əlavə Et </a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>

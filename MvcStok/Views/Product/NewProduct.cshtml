@@ -1,0 +1,40 @@
+﻿@model MvcStok.Models.Entity.Tbl_Products
+@{
+    ViewBag.Title = "NewProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+
+        <label>Məhsul Adi</label>
+        <input type="text" class="form-control" name="Name" required="" />
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Markası</label>
+        <input type="text" class="form-control" name="Marka" required="" />
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Kateqoriya</label>
+        @Html.DropDownListFor(m =>m.Tbl_Categories.ID,(List<SelectListItem>)ViewBag.dgr,new{@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Stok</label>
+        <input type="text" class="form-control" name="Stok" />
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Qiymət</label>
+        <input type="text" class="form-control" name="Price" />
+    </div>
+    <div style="margin-top:15px">
+
+        <button class="btn btn-info">Məhsul Əlavə Et</button>
+    </div>
+
+
+</form>
+

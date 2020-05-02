@@ -1,0 +1,37 @@
+﻿@model MvcStok.Models.Entity.Tbl_Customers
+@{
+    ViewBag.Title = "NewCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+    <form class="form-group" method="post">
+        @*<div>
+
+            <label>Müştəri Adi</label>
+            <input type="text" class="form-control" name="Name" />
+            <label style="margin-top:15px">Müştəri Soyadi</label>
+            <input type="text" style="margin-top:15px" class="form-control" name="Surname" />
+        </div>*@
+        <div>
+
+            <label>Müştəri Adi</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @style = "color:green" })
+            <br />
+            <label style="margin-top:15px">Müştəri Soyadi</label>
+            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Surname, "", new { @style = "color:green" })
+        </div>
+        <div style="margin-top:15px">
+
+            <button class="btn btn-info" id="btn1">Müştəri Əlavə Et</button>
+        </div>
+       <script>
+           $('#btn1').click(function () {
+               alert("Musteri Elave Edildi");
+           });
+
+       </script>
+
+    </form>
+
